@@ -1,0 +1,21 @@
+* {
+	font-family: 'Inter', sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0 1em;
+}
+
+h1 {
+	text-align: center;
+	font-size: 3em;
+	padding-bottom: 2rem;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 1fr;
+	margin: 0 auto;
+}

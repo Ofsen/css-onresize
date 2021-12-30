@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Testing stuff</title>
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="global.css" />
+	</head>
+
+	<body>
+		<h1>Hello, resize the window!</h1>
+		<div class="container">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed iaculis risus. Pellentesque nec lectus
+				pharetra, efficitur justo et, tincidunt augue. Pellentesque ultricies, ante ut dictum pharetra, neque leo
+				porttitor est, in efficitur elit metus sed dui. Quisque vestibulum non arcu quis pellentesque. Curabitur vel
+				bibendum eros. Etiam quis elementum enim. Mauris sagittis diam sit amet nisi imperdiet condimentum. Duis mattis,
+				lorem vel suscipit pharetra, leo nunc laoreet ipsum, sed consectetur augue diam at orci. Vestibulum posuere nunc
+				accumsan massa volutpat, vitae mattis lorem blandit.
+			</p>
+			<p>
+				Fusce dapibus ut lectus sed placerat. In cursus turpis vel libero convallis, quis accumsan lectus blandit.
+				Aliquam ac erat nisl. Phasellus magna risus, placerat non quam quis, eleifend scelerisque urna. Nullam faucibus
+				ligula sem. Duis dictum risus ac massa fringilla blandit. Aenean molestie rhoncus placerat. Suspendisse vitae
+				tortor at odio porttitor dapibus sit amet id magna. Pellentesque sit amet iaculis velit.
+			</p>
+			<p>
+				Ut nec elit leo. Fusce tempor orci eu neque bibendum pulvinar. Etiam fringilla, ligula sed porta scelerisque,
+				leo sem dictum mi, in tristique lacus ligula a orci. Nulla semper non mi sed tempor. Cras at rutrum nunc, non
+				tincidunt sem. Quisque vitae elit non risus dignissim commodo. Donec sollicitudin, est ac molestie sodales,
+				augue nulla tempor dui, in malesuada purus velit quis turpis. Suspendisse congue, metus vitae sollicitudin
+				cursus, elit lectus consequat est, quis vehicula massa arcu in eros. Curabitur ligula tellus, ullamcorper vel
+				elementum at, semper sit amet metus.
+			</p>
+			<p>
+				Integer commodo imperdiet odio, ut laoreet dolor faucibus ut. Fusce volutpat congue metus, et mattis sapien
+				pellentesque egestas. Nam dignissim aliquam orci at consectetur. Phasellus posuere elit at mattis consectetur.
+				Fusce ac luctus est, eget laoreet odio. Proin accumsan malesuada ullamcorper. Nulla faucibus et libero
+				vestibulum cursus.
+			</p>
+			<p>
+				Nunc ultricies quis ante in tincidunt. Aliquam ligula libero, ullamcorper a eros dictum, tempor hendrerit nunc.
+				Duis non eleifend justo, id iaculis odio. Suspendisse non ligula ac magna mattis dignissim. In nec iaculis ante.
+				Donec ut massa sed justo consectetur commodo. Phasellus nulla purus, ullamcorper a risus id, condimentum maximus
+				tellus. Quisque vulputate, urna et ultricies volutpat, augue turpis rutrum ligula, at tristique augue purus ut
+				mauris. Praesent eu nisi vulputate, aliquet mi quis, rutrum diam. Curabitur aliquam risus ac nunc euismod
+				iaculis. Nam arcu elit, luctus vel mollis eu, efficitur id eros. Orci varius natoque penatibus et magnis dis
+				parturient montes, nascetur ridiculus mus.
+			</p>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		function loadCSS(media, name) {
+			var newSS = document.createElement('link');
+			newSS.rel = 'stylesheet';
+			newSS.href = 'style/' + name + '.css';
+			newSS.id = name;
+			document.getElementsByTagName('head')[0].appendChild(newSS);
+		}
+
+		function checkBreakpoints() {
+			let breakpoints = {
+				sm: 576,
+				md: 768,
+				lg: 992,
+				xl: 1200,
+			};
+			for (const key in breakpoints) {
+				let width = window.outerWidth;
+
+				let exists = document.getElementById(key);
+				if (width >= breakpoints[key]) {
+					if (!exists) window.addEventListener('load', loadCSS('(min-width: ' + breakpoints[key] + ')', key));
+				} else {
+					if (exists) exists.parentNode.removeChild(exists);
+				}
+			}
+			window.removeEventListener('load', checkBreakpoints);
+		}
+
+		window.addEventListener('resize', checkBreakpoints, true);
+		window.addEventListener('load', checkBreakpoints, true);
+	</script>
+</html>
