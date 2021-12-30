@@ -2,7 +2,7 @@
 
 A simple Javascript script that adds/removes `<Link rel="stylesheet">` tags depending on the width of the window.
 
-### [Demo Here](http://demolink.com)
+### [Demo Here](https://ofsen.github.io/css-onresize/)
 
 ---
 
