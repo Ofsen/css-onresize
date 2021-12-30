@@ -9,3 +9,8 @@ A simple Javascript script that adds/removes `<Link rel="stylesheet">` tags depe
 ## The goal
 
 The goal is to get the same effects as the "Media queries" but having the possibility to spit the css into multiple files and requesting them depending on the need for them.
+
+---
+
+### LICENCE
+[MIT](https://github.com/Ofsen/css-onresize/blob/main/LICENSE)
